@@ -1,0 +1,313 @@
+:root {
+  --firstColor: #2bee83; /* Text and such */
+  --secondColor: #2f00ff; /* Links */
+  --boxColor: #333333; /* Page sections/borders */
+  --hlColor1: #00d6b9; /* Mouse hover ighlight */
+  --hlColor2: #ff55a4; /* Page breaks and other accents */
+  --bgColor1: #111111;
+  --bgColor2: #333333;
+}
+
+@font-face {
+    font-family: 'Liberation Monospace';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Liberation Monospace'), url('https://fonts.cdnfonts.com/s/276/LiberationMono-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Liberation Monospace';
+    font-style: normal;
+    font-weight: bold;
+    src: local('Liberation Monospace'), url('https://fonts.cdnfonts.com/s/276/LiberationMono-Bold.woff') format('woff');
+}
+
+body {
+        margin: auto;
+        padding: 1em;
+        max-width: 1024px;
+        font-family: 'Liberation Mono', 'Liberation Monospace', 'Courier New', monospace, sans-serif;
+        color: var(--firstColor);
+        background: var(--bgColor1);
+        word-wrap: break-word;
+}
+
+a {
+        text-decoration: none;
+        color: var(--secondColor);
+        font-weight: bold;
+        padding-right: 0.25em;
+}
+
+        a:hover {
+                color: var(--hlColor1);
+        }
+
+hr {
+        border-color: var(--hlColor2);
+}
+
+.text-center {
+        text-align: center
+}
+
+.advisory {
+        background: var(--firstColor);
+        color: var(--bgColor2);
+        font-weight: bold;
+        padding: 1em;
+        border-radius: 0.25em;
+}
+
+h1 {
+        font-size:1.6rem;
+        text-transform: uppercase;
+        letter-spacing:-.75px;
+        color: var(--firstColor);
+        padding-top:.5rem;
+}
+
+.grid {
+        border-collapse: collapse;
+}
+.col {
+        border: 6px double var(--boxColor);
+        padding: 1em;
+        flex-grow: 1;
+}
+
+#fancyboi::before {
+        content: "### ";
+}
+
+@media (prefers-reduced-motion: no-preference) {
+        @keyframes flash {
+                50% { opacity: 0; }
+        }
+
+        @keyframes reveal {
+                from { max-width: 2em; } /* Width of ::before */
+                  to { max-width: 100%; }
+        }
+
+        #fancyboi {
+                overflow: hidden;
+                white-space: nowrap;
+                animation: reveal 4s linear;
+                text-overflow: "█";
+        }
+
+        #fancyboi::after {
+                content: "█";
+                animation: flash 0.5s step-end infinite;
+                position: relative;
+                top: -2px;
+                margin-left: 3px;
+        }
+}
+
+.sourceCode {
+ color:#008000;
+}
+
+code > span.fl {
+ color: #008000;
+}
+
+ /* Style the navbar */
+#navbar {
+        overflow: hidden;
+        background-color: var(--firstColor);
+        color: #222;
+        z-index: 99;
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        border-radius: 0.25em;
+}
+
+#navbar a:hover {
+        background-color: var(--hlColor1);
+}
+
+/* Navbar linkss */
+#navbar a {
+        float: left;
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px;
+        text-decoration: none;
+}
+
+/* Page content */
+.user-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
+}
+
+
+input[type="text"],
+textarea {
+        background-color: var(--bgColor2);
+        color: var(--firstColor);
+}
+
+div.alert-warning {
+        background-color: darkred;
+}
+div.alert-success {
+        background-color: darkgreen;
+}
+
+.notice-message {
+    background-color: var(--firstColor);
+    color: #222;
+    font-weight: bold;
+    padding: 0.75em;
+    border-radius: 0.25em;
+    margin: 1em 0;
+    text-align: center;
+    border: 2px solid var(--firstColor);
+    box-shadow: 0 0 10px rgba(255, 187, 85, 0.5);
+}
+
+blockquote {
+    border-left: 2px solid var(--firstColor);
+    background-color: rgba(255, 187, 85, 5%);
+    padding: 0.5em;
+}
+
+@media (min-width: 768px) {
+        .row {
+                display: flex;
+                flex-wrap: nowrap;
+                flex-direction: row-reverse;
+        }
+}
+
+@media (max-width: 768px) {
+        td {
+                display: block;
+        }
+}
+
+/* Ensure the user-list displays items in a single column */
+.single-column {
+    display: block;
+}
+.single-column li {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Style for the article content */
+.article-headers {
+    background-color: var(--bgColor2);
+    color: var(--firstColor);
+    padding: 1em;
+    border: 1px solid var(--firstColor);
+    border-radius: 0.25em;
+    margin-bottom: 1em;
+}
+
+.article-headers p {
+    margin: 0.5em 0;
+}
+
+pre {
+    background-color: var(--bgColor2);
+    color: var(--firstColor);
+    padding: 1em;
+    border: 1px solid var(--firstColor);
+    border-radius: 0.25em;
+}
+
+/* Style for error messages */
+.alert-warning {
+    background-color: darkred;
+    color: var(--firstColor);
+    padding: 1em;
+    border-radius: 0.25em;
+    font-weight: bold;
+}
+/* Ensure the user-list displays items in a single column */
+.single-column {
+    display: block;
+}
+.single-column li {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Tree structure styles */
+.tree, .tree ul {
+    padding: 0;
+    list-style: none;
+    position: relative;
+}
+
+.tree ul {
+    margin-left: 1em; /* indentation for nested lists */
+}
+
+.tree ul:before {
+    content: "";
+    display: block;
+    width: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-left: 1px solid var(--firstColor);
+}
+
+.tree li {
+    margin: 0;
+    padding: 0.5em 0 0.5em 1em; /* space between items */
+    position: relative;
+}
+
+.tree li:before {
+    content: "";
+    display: inline-block;
+    width: 1em; /* horizontal space for the branch line */
+    height: 0;
+    border-top: 1px solid var(--firstColor);
+    position: absolute;
+    top: 1.2em; /* adjust as needed */
+    left: 0;
+}
+
+.tree li:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -0.5em; /* adjust to align with the branch */
+    border-left: 1px solid var(--firstColor);
+}
+
+.tree li:last-child:after {
+    display: none; /* hide the line for the last child */
+}
+
+/* Style for timestamps */
+.timestamp {
+    color: #999;
+    font-size: 0.9em;
+    margin-left: 0.5em;
+}
+/* Highlighted item */
+.highlighted {
+    background-color: var(--bgColor2); /* Dark background to fit the page colorscheme */
+    border: 1px solid var(--firstColor); /* Matching border color */
+    border-radius: 0.25em; /* Slight border radius for better appearance */
+    padding: 0.5em; /* Padding for better readability */
+}
+
